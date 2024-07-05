@@ -31,9 +31,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Code_Generator.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutocompleteMenu-ScintillaNET, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoCompleteMenu-ScintillaNET.2.1.1\lib\net45\AutocompleteMenu-ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="iTools">
+      <HintPath>..\..\iTools\iTools\bin\Debug\iTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Scintilla.NET, Version=5.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Scintilla.NET.5.3.1\lib\net45\Scintilla.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,14 +61,155 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controls\iTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\frmRegisterDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main\frmRegisterDatabase.Designer.cs">
+      <DependentUpon>frmRegisterDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain.Designer.cs">
+      <DependentUpon>SQL_frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain_Database.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain_LanguageFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain_Menus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SQL\SQL_frmMain_Snippets.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sub\CSharp\frmListTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmListTemplates.Designer.cs">
+      <DependentUpon>frmListTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmPreviewDgv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmPreviewDgv.Designer.cs">
+      <DependentUpon>frmPreviewDgv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmSaveTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmSaveTemplate.Designer.cs">
+      <DependentUpon>frmSaveTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmUpdateDatagridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmUpdateDatagridView.Designer.cs">
+      <DependentUpon>frmUpdateDatagridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmChange.Designer.cs">
+      <DependentUpon>frmChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmCodeSnippet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmCodeSnippet.Designer.cs">
+      <DependentUpon>frmCodeSnippet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmSave.Designer.cs">
+      <DependentUpon>frmSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\frmSnippet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\frmSnippet.Designer.cs">
+      <DependentUpon>frmSnippet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\SQL\frmAddTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\SQL\frmAddTable.Designer.cs">
+      <DependentUpon>frmAddTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmCustomDatagridview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmCustomDatagridview.Designer.cs">
+      <DependentUpon>frmCustomDatagridview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\SQL\frmDatabaseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\SQL\frmDatabaseInfo.Designer.cs">
+      <DependentUpon>frmDatabaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\CSharp\frmEvents.Designer.cs">
+      <DependentUpon>frmEvents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\SQL\frmGenerateInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\SQL\frmGenerateInformation.Designer.cs">
+      <DependentUpon>frmGenerateInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub\SQL\frmGetConString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub\SQL\frmGetConString.Designer.cs">
+      <DependentUpon>frmGetConString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\SQL\ucSQL_Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\SQL\ucSQL_Login.Designer.cs">
+      <DependentUpon>ucSQL_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\ucEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\ucEditor.Designer.cs">
+      <DependentUpon>ucEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\uc_AddTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\uc_AddTable.Designer.cs">
+      <DependentUpon>uc_AddTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\uc_Creating.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\uc_Creating.Designer.cs">
+      <DependentUpon>uc_Creating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\uc_ShowData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\uc_ShowData.Designer.cs">
+      <DependentUpon>uc_ShowData.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Main\frmRegisterDatabase.resx">
+      <DependentUpon>frmRegisterDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SQL\SQL_frmMain.resx">
+      <DependentUpon>SQL_frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,7 +218,66 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sub\CSharp\frmListTemplates.resx">
+      <DependentUpon>frmListTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\CSharp\frmPreviewDgv.resx">
+      <DependentUpon>frmPreviewDgv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\CSharp\frmSaveTemplate.resx">
+      <DependentUpon>frmSaveTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\CSharp\frmUpdateDatagridView.resx">
+      <DependentUpon>frmUpdateDatagridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmChange.resx">
+      <DependentUpon>frmChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmCodeSnippet.resx">
+      <DependentUpon>frmCodeSnippet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmSave.resx">
+      <DependentUpon>frmSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\frmSnippet.resx">
+      <DependentUpon>frmSnippet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\SQL\frmAddTable.resx">
+      <DependentUpon>frmAddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\CSharp\frmCustomDatagridview.resx">
+      <DependentUpon>frmCustomDatagridview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\SQL\frmDatabaseInfo.resx">
+      <DependentUpon>frmDatabaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\CSharp\frmEvents.resx">
+      <DependentUpon>frmEvents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\SQL\frmGenerateInformation.resx">
+      <DependentUpon>frmGenerateInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub\SQL\frmGetConString.resx">
+      <DependentUpon>frmGetConString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\SQL\ucSQL_Login.resx">
+      <DependentUpon>ucSQL_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\ucEditor.resx">
+      <DependentUpon>ucEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\uc_AddTable.resx">
+      <DependentUpon>uc_AddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\uc_Creating.resx">
+      <DependentUpon>uc_Creating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\uc_ShowData.resx">
+      <DependentUpon>uc_ShowData.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +290,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Code_Generator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{82ec4b53-63b6-4786-a951-1c2d6ba80fed}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{5af8aa0c-4a07-4982-9b1f-74add5c7100c}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UTIL\UTIL.csproj">
+      <Project>{4500f339-6354-40b6-90e0-62bae9b31487}</Project>
+      <Name>UTIL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arriere_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Droite_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Double_Gauche_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vers_Avant_30.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
